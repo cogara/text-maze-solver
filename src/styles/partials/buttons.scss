@@ -1,0 +1,15 @@
+.button {
+    padding: 1rem;
+    line-height: 0;
+    color: #fff;
+    background: #0194d3;
+    border: 3px solid rgba(1, 112, 160, 0.5);
+    margin: .25rem 0;
+    border-radius: 3px;
+    text-transform: uppercase;
+    &:hover {
+        cursor: pointer;
+        border: 3px solid #fff;
+        transition: .5s border ease;
+    }
+}

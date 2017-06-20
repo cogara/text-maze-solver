@@ -1,0 +1,96 @@
+<html ng-app="PeopleNetCodeChallenge">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connor O'Gara - PeopleNet Code Challenge</title>
+    <script src="./scripts/vendor/angular.min.js"></script>
+    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js">
+    <script src="./scripts/scripts.min.js"></script>
+    <link rel="stylesheet" href="./styles/main.css"></link>
+</head>
+<body ng-controller="MainController as main">
+    <div class="page-container">
+        <div class="header">
+            <h1>Maze Solver</h1>
+            <h5 class="subheader">PeopleNet Code Challenge<h5>
+        </div>
+        <div class="main" ng-class="{hidden: main.maze}">
+            <div ng-class="{hidden: main.maze}" class="content-header">
+                <div class="maze-instruction">
+                    <p>Enter a text maze to solve in the below text box. Follow the legend for instructions on constructing the maze. The outside edges must either be a wall or an entrance/exit to the maze.</p>
+                    <table class="maze-legend">
+                        <tr>
+                            <th>Character</th>
+                            <th>Maze Component</th>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>Start</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>Exit</td>
+                        </tr>
+                        <tr>
+                            <td>#</td>
+                            <td>Wall</td>
+                        </tr>
+                        <tr>
+                            <td>.</td>
+                            <td>Path</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p>You may select a pre-constructed maze for demonstration.</p>
+                <button class="button" ng-click="main.setMaze(1)">Maze One</button>
+                <button class="button" ng-click="main.setMaze(2)">Maze Two</button>
+                <button class="button" ng-click="main.setMaze(3)">Maze Three</button>
+                
+                <br />
+                
+                <textarea rows='10' class="maze-input" ng-model="main.mazeBox">
+
+                </textarea>
+                <button class="button" ng-click="main.solveMaze(main.mazeBox)">Render Maze</button>
+            </div>     
+        </div>
+        <div class="maze" ng-class="{hidden: !main.maze}">
+            <button
+                class="button" 
+                ng-click="main.mazeBox = ''; main.maze = null"
+                ng-show="main.maze">Reset</button>
+            <button 
+                class="button" 
+                ng-click="main.showSolution = (main.showSolution) ? false : true;"
+                ng-show="main.maze">
+                <span ng-show="!main.showSolution">Show</span>
+                <span ng-show="main.showSolution">Hide</span> Solution
+            </button>
+            <div class="maze-steps" ng-show="main.maze.hasSolution && main.showSolution">
+                Total # Steps: {{ main.maze.numberOfSteps}}
+            </div>
+            
+            <div class="maze-display" >
+                <h3 ng-show="main.maze.maze">
+                    <span ng-show="!main.maze.hasSolution">
+                        No Solution
+                    </span>
+                </h3>
+                <div class="maze-row" ng-repeat="row in main.maze.maze track by $index">
+                    <div 
+                        ng-repeat="column in row track by $index" 
+                        class="maze-block" 
+                        ng-class=
+                            "{'maze-block__wall': column == 'X', 'maze-block__open': column == 'O', 'maze-block__start': column == 'A', 'maze-block__end': column == 'B', 'maze-block__path': ((column == '+') && (main.showSolution))}"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h5>Created by <a href="https://cogara.io">Connor O'Gara</a></h5>
+        </div>
+    </div>
+</body>
+</html>
