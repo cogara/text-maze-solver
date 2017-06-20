@@ -38,14 +38,12 @@ a {
 
 .header,
 .main,
-.footer,
-.maze {
+.footer {
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-.main,
-.maze {
+.main {
     flex: 1 auto;
     &.hidden {
         // flex: 0;

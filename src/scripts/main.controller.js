@@ -15,8 +15,8 @@ function MainController($http) {
     
     function setMaze(num) {
         main.mazeBox = (num == 1) ? mazeOne : (num == 2) ? mazeTwo : (num == 3 ) ? mazeThree : "No Maze Selected";
-
     }
+    
     function solveMaze(maze) {
         var data = {maze: maze};
         $http.post('/maze', data).then(function(response) {

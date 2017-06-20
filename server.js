@@ -18,6 +18,11 @@ app.get('/test', function(req, res) {
 // route
 app.use('/maze', maze);
 
+app.use(function(req, res) {
+    // Use res.sendfile, as it streams instead of reading the file into memory.
+    res.sendfile(__dirname + '/public/index.html');
+});
+
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, 'client', 'index.html'))
 });

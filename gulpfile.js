@@ -19,6 +19,10 @@ gulp.task('html', function() {
         .src('./src/*.html')
         .pipe(gulp.dest('./client'))
         .pipe(reload({stream: true}));
+    gulp
+        .src('./src/templates/*.html')
+        .pipe(gulp.dest('./client/templates'))
+        .pipe(reload({stream: true}));
 })
 
 gulp.task('scripts', function() {

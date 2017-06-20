@@ -1,13 +1,42 @@
 .header {
     background-color: #000;
     color: #eee;
-    font-style: italic;
+    // font-style: italic;
     margin: 0;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     position: relative;
     z-index: 10;
+    h1 {
+        font-style: italic;
+    }
 }
 
 .subheader {
     font-style: normal;
+}
+
+.nav {
+    padding: 0;
+    padding-left: 1rem;
+    font-size: 0;
+    // margin: 1rem 0;
+    background: rgba(1, 112, 160, 0.75);
+    &-item {
+        font-size: .8rem;
+        display: inline-block;
+        margin: .5rem 0;
+        &:not(:last-child) {
+            border-right: 1px solid #fff;
+        }
+        a {
+            padding: .1rem .5rem;
+            color: white;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
 }
