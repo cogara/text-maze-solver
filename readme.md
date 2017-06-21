@@ -11,6 +11,9 @@
 3. Start the web-app
     - `npm start`
 
+4. You may also run steps 3 and 4 together
+    - `npm run create && npm start`
+    
 #
 
 #### Live demo at [peoplenet.cogara.io](peoplenet.cogara.io).
