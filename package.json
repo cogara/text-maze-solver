@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
     "clean": "rm -r ./client/scripts ./client/styles && rm ./client/index.html",
-    "create": "npm install && npm build"
+    "create": "npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
